@@ -2,6 +2,9 @@
     <div class="comments-show">
       <div class="comment">
         <p>
+          <% if comment.subject.present? %>
+              <%= image_tag "#{comment.subject.downcase}.png" , size: "20x20" %>
+          <% end %>
           <%= comment.body %><br></p>
         <%#= link_to like_comment_path(comment), method: :put do %>
             <!--Like-->
