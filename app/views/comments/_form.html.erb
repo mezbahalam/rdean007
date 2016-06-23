@@ -1,0 +1,42 @@
+<%= form_for  @new_comment do |f| %>
+    <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+    <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+
+    <!--<div class="btn-group" data-toggle="buttons">-->
+        <%#= f.radio_button :subject, 'idea' %>
+        <%#= f.label :subject,  image_tag('logo.png', size: '30x30' ) + 'Idea' , :value => 'idea', class: "btn btn-primary  %>
+        <%#= f.radio_button :subject, 'question' %>
+        <%#= f.label :subject,image_tag('logo.png', size: '30x30' ) + 'Question', :value => 'question' %>
+
+        <%#= f.radio_button :subject, 'problem' %>
+        <%#= f.label :subject,image_tag('logo.png', size: '30x30' ) + 'Problem', :value => 'problem' %>
+
+        <%#= f.radio_button :subject, 'praise' %>
+        <%#= f.label :subject,image_tag('logo.png', size: '30x30' ) + 'Praise', :value => 'praise' %>
+   <!--</div>-->
+
+
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary-outline">
+        <input type="radio" name="comment[subject]" value="idea" id="option1" autocomplete="off" checked><img src="/assets/logo.png" style="height: 30px; width: 30px" /> Idea
+      </label>
+      <label class="btn btn-primary-outline">
+        <input type="radio" name="comment[subject]" value="question" id="option2" autocomplete="off"><img src="/assets/question.png" style="height: 30px; width: 30px" /> Question
+      </label>
+      <label class="btn btn-primary-outline">
+        <input type="radio" name="comment[subject]" value="problem" autocomplete="off"> <img src="/assets/problem.png" style="height: 25px; width: 25px" /> Problem
+      </label>
+
+      <label class="btn btn-primary-outline">
+        <input type="radio" name="comment[subject]" value="praise" autocomplete="off"><img src="/assets/praise.png" style="height: 30px; width: 30px" /> Praise
+      </label>
+    </div>
+
+
+    <div class="field form-group">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= submit_tag "Post comment", class: 'btn btn-primary' %>
+    </div>
+<% end %>
